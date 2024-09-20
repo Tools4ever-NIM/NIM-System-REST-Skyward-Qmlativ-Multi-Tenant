@@ -1264,18 +1264,17 @@
         "operations": {
           "Employee_EmployeeDistrictList": {
             "method": "get",
-            
+            "query_parameters": {
+              "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
               "iterator": "EntityID",
               "iterator_columns": [
-                "categoryid"
+                "FiscalYearCurrent_FiscalYearID"
               ],
-              "path": "/Custom/{entity_id}/Employee/EmployeeDistrict",
-              "query_parameters": {
-              "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
-            }
+              "path": "/Custom/{entity_id}/Employee/EmployeeDistrict"
             },
             "processing_options": {
               "output_field": "Objects"
