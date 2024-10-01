@@ -84,14 +84,18 @@
         "operations": {
           "Curriculum_SubjectList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
+            
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
               "iterator": "EntityID",
-              "path": "/Custom/{iterator}/Curriculum/Subject"
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "path": "/Custom/{iterator}/Curriculum/Subject",
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              }
             },
             "processing_options": {
               "output_field": "Objects"
@@ -288,6 +292,9 @@
             "query_parameters": {
             },
             "call": {
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
               "path": "/Custom/{iterator}/Demographics/Language"
             },
             "processing_options": {
@@ -320,6 +327,9 @@
             "query_parameters": {
             },
             "call": {
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
               "path": "/Custom/{iterator}/Demographics/NameAddress"
             },
             "processing_options": {
@@ -391,7 +401,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{entity_id}/Demographics/NameEmail?searchFields[0]=NameEmailID"
+              "path": "/Custom/{iterator}/Demographics/NameEmail?searchFields[0]=NameEmailID"
             },
             "query_parameters": {},
             "body": {
@@ -414,7 +424,7 @@
             "method": "post",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{entity_id}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
+              "path": "/Custom/{iterator}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
             },
             "query_parameters": {},
             "body": {
@@ -441,7 +451,7 @@
             "method": "delete",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{entity_id}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
+              "path": "/Custom/{iterator}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
             },
             "query_parameters": {},
             "semantics": "delete",
@@ -491,7 +501,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{entity_id}/Demographics/NamePhone?searchFields[0]=NamePhoneID"
+              "path": "/Custom/{iterator}/Demographics/NamePhone?searchFields[0]=NamePhoneID"
             },
             "query_parameters": {},
             "body": {
@@ -642,7 +652,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{entity_id}/Demographics/Name?searchFields[0]=NameID"
+              "path": "/Custom/{iterator}/Demographics/Name?searchFields[0]=NameID"
             },
             "body": {
               "DataObject": {
@@ -814,7 +824,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_System",
+              "table": "Metadata_Districts",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/District/Building"
             },
@@ -837,7 +847,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/District/BuildingSchoolYear"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/District/BuildingSchoolYear"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -883,7 +896,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_System",
+              "table": "Metadata_Districts",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/District/ConfigEntityYear"
             },
@@ -943,7 +956,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_System",
+              "table": "Metadata_Districts",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/District/DistrictSchoolYear"
             },
@@ -975,7 +988,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_System",
+              "table": "Metadata_Districts",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/District/Entity"
             },
@@ -1004,7 +1017,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_System",
+              "table": "Metadata_Districts",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/District/FiscalYear"
             },
@@ -1030,7 +1043,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_System",
+              "table": "Metadata_Districts",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/District/Floor"
             },
@@ -1062,7 +1075,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_System",
+              "table": "Metadata_Districts",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/District/Room"
             },
@@ -1088,7 +1101,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_System",
+              "table": "Metadata_Districts",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/District/RoomType"
             },
@@ -1142,13 +1155,16 @@
         "operations": {
           "Employee_CalendarList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
               "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
               "path": "/Custom/{iterator}/Employee/Calendar"
             },
             "processing_options": {
@@ -1177,6 +1193,12 @@
               "mode": "iteration",
               "table": "Metadata_Districts",
               "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
               "path": "/Custom/{iterator}/Employee/CheckLocation"
             },
             "processing_options": {
@@ -1199,12 +1221,17 @@
           "Employee_DegreeTypeList": {
             "method": "get",
             "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
             },
             "call": {
               "mode": "iteration",
-              "table": "Metadata_Districts",
+              "table": "Metadata_System",
               "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
               "path": "/Custom/{iterator}/Employee/DegreeType"
             },
             "processing_options": {
@@ -1229,13 +1256,16 @@
         "operations": {
           "Employee_DegreeList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
               "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
               "path": "/Custom/{iterator}/Employee/Degree"
             },
             "processing_options": {
@@ -1264,9 +1294,6 @@
         "operations": {
           "Employee_EmployeeDistrictList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -1274,8 +1301,12 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-              "path": "/Custom/{entity_id}/Employee/EmployeeDistrict"
+              "path": "/Custom/{iterator}/Employee/EmployeeDistrict",
+              "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              }
             },
+            "semantics": "get",
             "processing_options": {
               "output_field": "Objects"
             }
@@ -1295,11 +1326,11 @@
         "operations": {
           "Employee_EmployeeFiscalYearList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Employee/EmployeeFiscalYear"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Employee/EmployeeFiscalYear"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1320,11 +1351,17 @@
         "operations": {
           "Employee_EmployeeList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Employee/Employee"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },  
+              "path": "/Custom/{iterator}/Employee/Employee"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1345,11 +1382,17 @@
         "operations": {
           "Employee_EmployeeYearExperienceList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Employee/EmployeeYearExperience"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Employee/EmployeeYearExperience"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1376,11 +1419,17 @@
         "operations": {
           "Employee_EmploymentList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Employee/Employment"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Employee/Employment"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1402,11 +1451,11 @@
         "operations": {
           "Employee_EmploymentStatusList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Employee/EmploymentStatus"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Employee/EmploymentStatus"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1427,11 +1476,11 @@
         "operations": {
           "Employee_TerminationList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Employee/Termination"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Employee/Termination"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1453,11 +1502,11 @@
         "operations": {
           "Enrollment_EntitySchoolList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Enrollment/EntitySchool"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Enrollment/EntitySchool"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1481,11 +1530,11 @@
         "operations": {
           "Enrollment_EntryCodeList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Enrollment/EntryCode"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Enrollment/EntryCode"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1514,11 +1563,17 @@
         "operations": {
           "Enrollment_EntryWithdrawalList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Enrollment/EntryWithdrawal"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Enrollment/EntryWithdrawal"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1543,11 +1598,11 @@
         "operations": {
           "Enrollment_GradeLevelList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Enrollment/GradeLevel"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Enrollment/GradeLevel"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1570,11 +1625,17 @@
         "operations": {
           "Enrollment_HomeroomList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Enrollment/Homeroom"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Enrollment/Homeroom"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1607,11 +1668,17 @@
         "operations": {
           "Enrollment_SchoolList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Enrollment/School"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Enrollment/School"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1646,11 +1713,17 @@
         "operations": {
           "Enrollment_StudentEntityYearList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Enrollment/StudentEntityYear"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Enrollment/StudentEntityYear"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1671,11 +1744,11 @@
         "operations": {
           "Enrollment_StudentTypeList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Enrollment/StudentType"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Enrollment/StudentType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1699,11 +1772,17 @@
         "operations": {
           "Enrollment_WithdrawalCodeList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Enrollment/WithdrawalCode"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Enrollment/WithdrawalCode"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1725,7 +1804,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/Family/Family"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Family/Family"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1747,7 +1829,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/Family/FamilyGuardian"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Family/FamilyGuardian"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1778,7 +1863,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/Family/StudentFamily"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Family/StudentFamily"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1807,7 +1895,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/Family/StudentGuardian"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Family/StudentGuardian"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1835,7 +1926,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/FoodService/Customer"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/FoodService/Customer"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1876,11 +1970,11 @@
         "operations": {
           "Position_AssignmentList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/Assignment"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Position/Assignment"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1907,11 +2001,11 @@
         "operations": {
           "Position_AssignmentDetailList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/AssignmentDetail"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Position/AssignmentDetail"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1933,11 +2027,17 @@
         "operations": {
           "Position_AssignmentTypeList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/AssignmentType"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/AssignmentType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1959,11 +2059,17 @@
         "operations": {
           "Position_DepartmentList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/Department"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/Department"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -1983,11 +2089,17 @@
         "operations": {
           "Position_EmployeePlacementList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/EmployeePlacement"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/EmployeePlacement"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2010,11 +2122,17 @@
         "operations": {
           "Position_EmployeePlacementDetailList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/EmployeePlacementDetail"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/EmployeePlacementDetail"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2034,11 +2152,17 @@
         "operations": {
           "Position_EmployeePositionTypeList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/EmployeePositionType"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/EmployeePositionType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2064,11 +2188,17 @@
         "operations": {
           "Position_FTEGroupList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/FTEGroup"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/FTEGroup"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2090,11 +2220,17 @@
         "operations": {
           "Position_JobTypeList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/JobType"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/JobType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2115,11 +2251,17 @@
         "operations": {
           "Position_LaneList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/Lane"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/Lane"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2141,11 +2283,17 @@
         "operations": {
           "Position_MatrixList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/Matrix"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/Matrix"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2164,11 +2312,17 @@
         "operations": {
           "Position_MatrixLaneList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/MatrixLane"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/MatrixLane"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2190,11 +2344,17 @@
         "operations": {
           "Position_OrganizationChartList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/OrganizationChart"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/OrganizationChart"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2217,11 +2377,17 @@
         "operations": {
           "Position_OrganizationChartApproverList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/OrganizationChartApprover"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/OrganizationChartApprover"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2242,11 +2408,17 @@
         "operations": {
           "Position_PlacementList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/Placement"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/Placement"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2286,11 +2458,17 @@
         "operations": {
           "Position_PositionList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/Position"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/Position"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2318,11 +2496,17 @@
         "operations": {
           "Position_PositionDistributionList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/PositionDistribution"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/PositionDistribution"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2355,11 +2539,17 @@
         "operations": {
           "Position_PositionDistributionSetList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/PositionDistributionSet"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/PositionDistributionSet"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2381,11 +2571,17 @@
         "operations": {
           "Position_PositionGroupList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/PositionGroup"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/PositionGroup"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2408,11 +2604,17 @@
         "operations": {
           "Position_PositionNumberList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/PositionNumber"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/PositionNumber"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2442,11 +2644,17 @@
         "operations": {
           "Position_PositionTypeList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/PositionType"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/PositionType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2469,11 +2677,17 @@
         "operations": {
           "Position_StepList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Position/Step"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "FiscalYearCurrent_FiscalYearID"
+              ],
+			        "query_parameters": {
+                "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
+              },
+              "path": "/Custom/{iterator}/Position/Step"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2495,11 +2709,17 @@
         "operations": {
           "Scheduling_CourseTypeList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/CourseType"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/CourseType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2531,11 +2751,17 @@
         "operations": {
           "Scheduling_CourseList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/Course"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/Course"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2562,11 +2788,17 @@
         "operations": {
           "Scheduling_MeetList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/Meet"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/Meet"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2589,11 +2821,17 @@
         "operations": {
           "Scheduling_MeetSummaryList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/MeetSummary"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/MeetSummary"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2615,11 +2853,17 @@
         "operations": {
           "Scheduling_SchedulingTeamList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/SchedulingTeam"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/SchedulingTeam"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2646,11 +2890,17 @@
         "operations": {
           "Scheduling_SectionList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/Section"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/Section"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2672,11 +2922,17 @@
         "operations": {
           "Scheduling_StaffMeetList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/StaffMeet"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/StaffMeet"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2698,11 +2954,17 @@
         "operations": {
           "Scheduling_StaffStudentList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/StaffStudent"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/StaffStudent"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2729,11 +2991,17 @@
         "operations": {
           "Scheduling_StudentSectionList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/StudentSection"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/StudentSection"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2757,11 +3025,17 @@
         "operations": {
           "Scheduling_StudentSectionMeetSummaryList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Scheduling/StudentSectionMeetSummary"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Scheduling/StudentSectionMeetSummary"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2786,7 +3060,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/Security/AuthenticationRole"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Security/AuthenticationRole"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2808,7 +3085,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/Security/Group"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Security/Group"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2830,7 +3110,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/Security/GroupMembership"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Security/GroupMembership"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2855,7 +3138,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/Security/User"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Security/User"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2865,7 +3151,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{entity_id}/Security/User?searchFields[0]=AuthenticationRoleID&searchFields[1]=DatabaseUsername&searchFields[2]=EntityIDCurrent&searchFields[3]=FullNameFL&searchFields[4]=IsActive&searchFields[5]=NameID&searchFields[6]=UserID&searchFields[7]=Username&searchFields[8]=UsesSkywardAuthentication"
+              "path": "/Custom/{iterator}/Security/User?searchFields[0]=AuthenticationRoleID&searchFields[1]=DatabaseUsername&searchFields[2]=EntityIDCurrent&searchFields[3]=FullNameFL&searchFields[4]=IsActive&searchFields[5]=NameID&searchFields[6]=UserID&searchFields[7]=Username&searchFields[8]=UsesSkywardAuthentication"
             },
             "body": {
               "DataObject": {
@@ -2898,7 +3184,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/SkySys/State"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/SkySys/State"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2918,11 +3207,17 @@
         "operations": {
           "Staff_ConfigEntityGroupYearList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Staff/ConfigEntityGroupYear"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Staff/ConfigEntityGroupYear"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2945,11 +3240,17 @@
         "operations": {
           "Staff_DepartmentList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Staff/Department"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Staff/Department"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2979,7 +3280,16 @@
             "query_parameters": {
             },
             "call": {
-              "path": "/Custom/{entity_id}/Staff/Staff"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Staff/Staff"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -2989,7 +3299,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{entity_id}/Staff/Staff?searchFields[0]=StaffID"
+              "path": "/Custom/{iterator}/Staff/Staff?searchFields[0]=StaffID"
             },
             "body": {
               "DataObject": {
@@ -3039,11 +3349,17 @@
         "operations": {
           "Staff_StaffDepartmentList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Staff/StaffDepartment"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Staff/StaffDepartment"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3071,11 +3387,17 @@
         "operations": {
           "Staff_StaffEntityYearList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Staff/StaffEntityYear"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Staff/StaffEntityYear"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3085,7 +3407,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{entity_id}/Staff/StaffEntityYear?searchFields[0]=StaffID&searchFields[1]=StaffEntityYearID"
+              "path": "/Custom/{iterator}/Staff/StaffEntityYear?searchFields[0]=StaffID&searchFields[1]=StaffEntityYearID"
             },
             "body": {
               "DataObject": {
@@ -3118,11 +3440,17 @@
         "operations": {
           "Staff_StaffStaffTypeList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Staff/StaffStaffType"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Staff/StaffStaffType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3132,7 +3460,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{entity_id}/Staff/StaffStaffType?searchFields[0]=StaffID&searchFields[1]=StaffStaffTypeID"
+              "path": "/Custom/{iterator}/Staff/StaffStaffType?searchFields[0]=StaffID&searchFields[1]=StaffStaffTypeID"
             },
             "body": {
               "DataObject": {
@@ -3164,11 +3492,17 @@
         "operations": {
           "Staff_StaffTypeList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Staff/StaffType"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Staff/StaffType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3192,7 +3526,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/StateReporting/StateInternetAccess"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/StateReporting/StateInternetAccess"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3216,7 +3553,10 @@
             "method": "get",
             "query_parameters": {},
             "call": {
-              "path": "/Custom/{entity_id}/StateReporting/StateInternetAccessType"
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/StateReporting/StateInternetAccessType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3237,11 +3577,17 @@
         "operations": {
           "Student_InternetAccessList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Student/InternetAccess"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Student/InternetAccess"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3262,11 +3608,17 @@
         "operations": {
           "Student_InternetAccessTypeList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Student/InternetAccessType"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Student/InternetAccessType"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3285,11 +3637,17 @@
         "operations": {
           "Student_StudentCustomCodeList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Student/StudentCustomCode"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Student/StudentCustomCode"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3334,11 +3692,17 @@
         "operations": {
           "Student_StudentList": {
             "method": "get",
-            "query_parameters": {
-              "SchoolYearID": "{school_year_id}"
-            },
             "call": {
-              "path": "/Custom/{entity_id}/Student/Student"
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              },
+              "path": "/Custom/{iterator}/Student/Student"
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3388,12 +3752,6 @@
         "type": "textbox",
         "label": "Integration Key:",
         "value": ""
-      },
-      {
-        "name": "entity_id",
-        "type": "textbox",
-        "label": "System Entity ID:",
-        "value": "1"
       },
       {
         "name": "page_size",
