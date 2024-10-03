@@ -282,9 +282,9 @@
           "LanguageID": "string*",
           "Code": "string*",
           "CodeDescription": "string*",
-          "CurrentStateLanguage": "string*",
-          "CurrentStateLanguageCode": "string*",
-          "Description": "string*"
+          "CurrentStateLanguage": "string",
+          "CurrentStateLanguageCode": "string",
+          "Description": "string"
         },
         "operations": {
           "Demographics_LanguageList": {
@@ -576,14 +576,14 @@
         "parameters": {},
         "resources": {
           "NameID": "string*",
-          "Age": "string*",
+          "Age": "string",
           "BirthDate": "string*",
           "BirthMonth": "string",
           "BirthMonthDay": "string",
           "BirthYear": "string",
-          "CalculatedPrimaryFormattedPhoneNumber": "string*",
-          "Ethnicity": "string*",
-          "EthnicityAndRace": "string*",
+          "CalculatedPrimaryFormattedPhoneNumber": "string",
+          "Ethnicity": "string",
+          "EthnicityAndRace": "string",
           "ExternalUniqueIdentifier": "string*",
           "FirstInitial": "string",
           "FirstInitialLastName": "string",
@@ -598,10 +598,10 @@
           "FullNameLegalLFM": "string",
           "FullNameLF": "string",
           "FullNameLFM": "string",
-          "Gender": "string*",
-          "GenderCode": "string*",
-          "GenderDescription": "string*",
-          "GenderIdentityID": "string*",
+          "Gender": "string",
+          "GenderCode": "string",
+          "GenderDescription": "string",
+          "GenderIdentityID": "string",
           "Initials": "string",
           "InitialsLegal": "string",
           "IsCurrentStudent": "string",
@@ -615,17 +615,17 @@
           "MiddleInitialLegal": "string",
           "LastName": "string*",
           "LastNameLegal": "string*",
-          "MaritalStatus": "string*",
-          "MaritalStatusCode": "string*",
+          "MaritalStatus": "string",
+          "MaritalStatusCode": "string",
           "MiddleName": "string*",
           "MiddleNameLegal": "string*",
-          "NameAddressMailingID": "string*",
+          "NameAddressMailingID": "string",
           "NameKey": "string*",
-          "NameNumber": "string*",
-          "NameSuffixID": "string*",
-          "NameSuffixIDLegal": "string*",
-          "NameTitleID": "string*",
-          "NameTitleIDLegal": "string*",
+          "NameNumber": "string",
+          "NameSuffixID": "string",
+          "NameSuffixIDLegal": "string",
+          "NameTitleID": "string",
+          "NameTitleIDLegal": "string",
           "OccupationID": "string*",
           "Race": "string*"
         },
@@ -912,17 +912,17 @@
         "resources": {
           "DistrictID": "string*",
           "BuildingID": "string*",
-          "CodeName": "string*",
-          "FaxNumber": "string*",
-          "FaxNumberIsInternational": "string*",
-          "FormattedPhoneNumber": "string*",
-          "IsCurrentlySelected": "string*",
+          "CodeName": "string",
+          "FaxNumber": "string",
+          "FaxNumberIsInternational": "string",
+          "FormattedPhoneNumber": "string",
+          "IsCurrentlySelected": "string",
           "Name": "string*",
-          "NCESIDCode": "string*",
-          "PhoneNumber": "string*",
-          "PhoneNumberIsInternational": "string*",
-          "StaffIDSuperintendent": "string*",
-          "StateDistrictCode": "string*",
+          "NCESIDCode": "string",
+          "PhoneNumber": "string",
+          "PhoneNumberIsInternational": "string",
+          "StaffIDSuperintendent": "string",
+          "StateDistrictCode": "string",
           "DistrictCodeBySchoolYear": "string",
           "DistrictGroupID": "string"
         },
@@ -3264,15 +3264,15 @@
         "resources": {
           "StaffID": "string*",
           "DistrictID": "string*",
-          "GradeLevelLowerBound": "string*",
-          "GradeLevelUpperBound": "string*",
-          "HasDuplicateStaffNumber": "string*",
+          "GradeLevelLowerBound": "string",
+          "GradeLevelUpperBound": "string",
+          "HasDuplicateStaffNumber": "string",
           "IsActiveForDistrict": "string*",
           "IsCurrentStaffEntityYear": "string*",
           "NameID": "string*",
-          "StaffMeetCount": "string*",
+          "StaffMeetCount": "string",
           "StaffNumber": "string*",
-          "StaffWebsite": "string*"
+          "StaffWebsite": "string"
         },
         "operations": {
           "Staff_StaffList": {
@@ -3694,14 +3694,8 @@
             "method": "get",
             "call": {
               "mode": "iteration",
-              "table": "Metadata_Districts",
+              "table": "Metadata_System",
               "iterator": "EntityID",
-              "iterator_columns": [
-                "SchoolYearCurrent_SchoolYearID"
-              ],
-              "query_parameters": {
-                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
-              },
               "path": "/Custom/{iterator}/Student/Student"
             },
             "processing_options": {
