@@ -1805,7 +1805,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_Districts",
+              "table": "Metadata_System",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/Family/Family"
             },
@@ -1830,7 +1830,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_Districts",
+              "table": "Metadata_System",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/Family/FamilyGuardian"
             },
@@ -1864,7 +1864,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_Districts",
+              "table": "Metadata_System",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/Family/StudentFamily"
             },
@@ -1896,7 +1896,7 @@
             "query_parameters": {},
             "call": {
               "mode": "iteration",
-              "table": "Metadata_Districts",
+              "table": "Metadata_System",
               "iterator": "EntityID",
               "path": "/Custom/{iterator}/Family/StudentGuardian"
             },
