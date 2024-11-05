@@ -391,7 +391,10 @@
               "mode": "iteration",
               "table": "Metadata_System",
               "iterator": "EntityID",
-              "path": "/Custom/{iterator}/Demographics/NameEmail"
+              "path": "/Custom/{iterator}/Demographics/NameEmail",
+			  "base": {
+				"EntityID": "{iterator}"
+			  }
             },
             "processing_options": {
               "output_field": "Objects"
@@ -401,12 +404,16 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{iterator}/Demographics/NameEmail?searchFields[0]=NameEmailID"
+              "path": "/Custom/{EntityID}/Demographics/NameEmail?searchFields[0]=NameEmailID"
             },
             "query_parameters": {},
             "body": {
               "DataObject": {
-                "_nim_merge_attributes_": true
+                "_nim_merge_attributes_": false,
+				"EmailAddress": "{EmailAddress}",
+                "EmailTypeID": "{EmailTypeID}",
+                "NameID": "{NameID}",
+                "Rank": "{Rank}"
               }
             },
             "removeBlankFields": true,
@@ -417,14 +424,15 @@
               "EmailAddress",
               "EmailTypeID",
               "NameID",
-              "Rank"
+              "Rank",
+			  "EntityID"
             ]
           },
           "Demographics_NameEmailUpdate": {
             "method": "post",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{iterator}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
+              "path": "/Custom/{EntityID}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
             },
             "query_parameters": {},
             "body": {
@@ -444,20 +452,22 @@
               "EmailConfirmed"
             ],
             "resource_mandatory": [
-              "NameEmailID"
+              "NameEmailID",
+			  "EntityID"
             ]
           },
           "Demographics_NameEmailDelete": {
             "method": "delete",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{iterator}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
+              "path": "/Custom/{EntityID}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
             },
             "query_parameters": {},
             "semantics": "delete",
             "resource_allowance_default": "prohibited",
             "resource_mandatory": [
-              "NameEmailID"
+              "NameEmailID",
+			  "EntityID"
             ]
           }
         }
@@ -491,7 +501,10 @@
               "mode": "iteration",
               "table": "Metadata_System",
               "iterator": "EntityID",
-              "path": "/Custom/{iterator}/Demographics/NamePhone"
+              "path": "/Custom/{iterator}/Demographics/NamePhone",
+			  "base": {
+				"EntityID": "{iterator}"
+			  }
             },
             "processing_options": {
               "output_field": "Objects"
@@ -501,7 +514,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{iterator}/Demographics/NamePhone?searchFields[0]=NamePhoneID"
+              "path": "/Custom/{EntityID}/Demographics/NamePhone?searchFields[0]=NamePhoneID"
             },
             "query_parameters": {},
             "body": {
@@ -516,7 +529,8 @@
               "PhoneNumber",
               "PhoneTypeID",
               "NameID",
-              "Rank"
+              "Rank",
+			  "EntityID"
             ]
           }
         }
