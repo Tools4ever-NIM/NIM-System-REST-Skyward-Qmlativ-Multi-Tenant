@@ -432,7 +432,7 @@
             "method": "post",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{EntityID}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
+              "path": "/Custom/{system_entityid}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
             },
             "query_parameters": {},
             "body": {
@@ -651,22 +651,20 @@
               "mode": "iteration",
               "table": "Metadata_System",
               "iterator": "EntityID",
-              "path": "/Custom/{iterator}/Demographics/Name"
+              "path": "/Custom/{iterator}/Demographics/Name",
+			  "base": {
+				"EntityID": "{iterator}"
+			  }
             },
             "processing_options": {
               "output_field": "Objects"
             }
           },
-
-
-
-
-
           "Demographics_NameCreate": {
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{iterator}/Demographics/Name?searchFields[0]=NameID"
+              "path": "/Custom/{system_entityid}/Demographics/Name?searchFields[0]=NameID"
             },
             "body": {
               "DataObject": {
@@ -678,8 +676,7 @@
             "resource_allowance_default": "optional",
             "resource_mandatory": [
               "FirstName",
-              "LastName",
-              "MiddleName"
+              "LastName"
             ]
           }
         }
@@ -3132,6 +3129,26 @@
             "processing_options": {
               "output_field": "Objects"
             }
+          },
+		  "Security_GroupMembershipCreate": {  
+            "method": "put",
+            "call": {
+                "mode": "normal",
+                "path": "/Custom/{EntityID}/Security/GroupMembership?searchFields[0]=GroupMembershipID&searchFields[1]=EntityID&searchFields[2]=GroupIDParent&searchFields[3]=UserIDMember&searchFields[4]=GroupIDParent"
+            },
+            "body":{
+              "DataObject":{
+                "_nim_merge_attributes_": true
+              }
+            },
+            "mergeOutput": true,
+            "semantics": "create",
+            "resource_allowance_default": "optional",
+            "resource_mandatory": [
+                "EntityID",
+                "GroupIDParent",
+                "UserIDMember"
+            ]
           }
         }
       },
@@ -3165,7 +3182,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{iterator}/Security/User?searchFields[0]=AuthenticationRoleID&searchFields[1]=DatabaseUsername&searchFields[2]=EntityIDCurrent&searchFields[3]=FullNameFL&searchFields[4]=IsActive&searchFields[5]=NameID&searchFields[6]=UserID&searchFields[7]=Username&searchFields[8]=UsesSkywardAuthentication"
+              "path": "/Custom/{system_entityid}/Security/User?searchFields[0]=AuthenticationRoleID&searchFields[1]=IsActive&searchFields[2]=NameID&searchFields[3]=UserID&searchFields[4]=Username"
             },
             "body": {
               "DataObject": {
@@ -3313,7 +3330,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{iterator}/Staff/Staff?searchFields[0]=StaffID"
+              "path": "/Custom/{system_entityid}/Staff/Staff?searchFields[0]=StaffID"
             },
             "body": {
               "DataObject": {
@@ -3421,7 +3438,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{iterator}/Staff/StaffEntityYear?searchFields[0]=StaffID&searchFields[1]=StaffEntityYearID"
+              "path": "/Custom/{EntityID}/Staff/StaffEntityYear?searchFields[0]=StaffID&searchFields[1]=StaffEntityYearID"
             },
             "body": {
               "DataObject": {
@@ -3474,7 +3491,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{iterator}/Staff/StaffStaffType?searchFields[0]=StaffID&searchFields[1]=StaffStaffTypeID"
+              "path": "/Custom/{system_entityid}/Staff/StaffStaffType?searchFields[0]=StaffID&searchFields[1]=StaffStaffTypeID"
             },
             "body": {
               "DataObject": {
@@ -3766,6 +3783,12 @@
         "type": "textbox",
         "label": "Page Size:",
         "value": "10000"
+      },
+	  {
+        "name": "system_entityid",
+        "type": "textbox",
+        "label": "System Entity ID:",
+        "value": ""
       }
     ]
   }
