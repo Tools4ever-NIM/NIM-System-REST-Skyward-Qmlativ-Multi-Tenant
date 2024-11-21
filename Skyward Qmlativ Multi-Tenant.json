@@ -380,12 +380,16 @@
           "EmailTypeID": "string*",
           "NameID": "string*",
           "Note": "string*",
-          "Rank": "string*"
+          "Rank": "string*",
+		  "EntityID": "string*"
         },
         "operations": {
           "Demographics_NameEmailList": {
             "method": "get",
-            "query_parameters": {
+            "selector": {
+              "mode": "array",
+              "array": "searchFields",
+              "excludedFields": ["EntityID"]
             },
             "call": {
               "mode": "iteration",
@@ -432,7 +436,7 @@
             "method": "post",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{system_entityid}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
+              "path": "/Custom/{EntityID}/Demographics/NameEmail/{NameEmailID}?searchFields[0]=NameEmailID"
             },
             "query_parameters": {},
             "body": {
@@ -490,12 +494,16 @@
           "Note": "string*",
           "PhoneNumber": "string*",
           "PhoneTypeID": "string*",
-          "Rank": "string*"
+          "Rank": "string*",
+		  "EntityID": "string*"
         },
         "operations": {
           "Demographics_NamePhoneList": {
             "method": "get",
-            "query_parameters": {
+            "selector": {
+              "mode": "array",
+              "array": "searchFields",
+              "excludedFields": ["EntityID"]
             },
             "call": {
               "mode": "iteration",
@@ -641,12 +649,17 @@
           "NameTitleID": "string",
           "NameTitleIDLegal": "string",
           "OccupationID": "string*",
-          "Race": "string*"
+          "Race": "string*",
+		  "EntityID": "string*
         },
         "operations": {
           "Demographics_NameList": {
             "method": "get",
-            "query_parameters": {},
+            "selector": {
+              "mode": "array",
+              "array": "searchFields",
+              "excludedFields": ["EntityID"]
+            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -664,7 +677,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{system_entityid}/Demographics/Name?searchFields[0]=NameID"
+              "path": "/Custom/{EntityID}/Demographics/Name?searchFields[0]=NameID"
             },
             "body": {
               "DataObject": {
@@ -3182,7 +3195,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{system_entityid}/Security/User?searchFields[0]=AuthenticationRoleID&searchFields[1]=IsActive&searchFields[2]=NameID&searchFields[3]=UserID&searchFields[4]=Username"
+              "path": "/Custom/{EntityID}/Security/User?searchFields[0]=AuthenticationRoleID&searchFields[1]=IsActive&searchFields[2]=NameID&searchFields[3]=UserID&searchFields[4]=Username"
             },
             "body": {
               "DataObject": {
@@ -3303,12 +3316,16 @@
           "NameID": "string*",
           "StaffMeetCount": "string",
           "StaffNumber": "string*",
-          "StaffWebsite": "string"
+          "StaffWebsite": "string",
+		  "EntityID": "string*"
         },
         "operations": {
           "Staff_StaffList": {
             "method": "get",
-            "query_parameters": {
+            "selector": {
+              "mode": "array",
+              "array": "searchFields",
+              "excludedFields": ["EntityID"]
             },
             "call": {
               "mode": "iteration",
@@ -3320,7 +3337,10 @@
               "query_parameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
-              "path": "/Custom/{iterator}/Staff/Staff"
+              "path": "/Custom/{iterator}/Staff/Staff",
+			  "base": {
+                "EntityID": "{iterator}"
+              }
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3330,7 +3350,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{system_entityid}/Staff/Staff?searchFields[0]=StaffID"
+              "path": "/Custom/{EntityID}/Staff/Staff?searchFields[0]=StaffID"
             },
             "body": {
               "DataObject": {
@@ -3466,11 +3486,17 @@
           "PositionDescription": "string*",
           "StaffID": "string*",
           "StaffTypeID": "string*",
-          "StartDate": "string*"
+          "StartDate": "string*",
+		  "EntityID": "string*
         },
         "operations": {
           "Staff_StaffStaffTypeList": {
             "method": "get",
+			"selector": {
+              "mode": "array",
+              "array": "searchFields",
+              "excludedFields": ["EntityID"]
+            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -3481,7 +3507,10 @@
               "query_parameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
-              "path": "/Custom/{iterator}/Staff/StaffStaffType"
+              "path": "/Custom/{iterator}/Staff/StaffStaffType",
+			  "base": {
+                "EntityID": "{iterator}"
+              }
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3491,7 +3520,7 @@
             "method": "put",
             "call": {
               "mode": "normal",
-              "path": "/Custom/{system_entityid}/Staff/StaffStaffType?searchFields[0]=StaffID&searchFields[1]=StaffStaffTypeID"
+              "path": "/Custom/{EntityID}/Staff/StaffStaffType?searchFields[0]=StaffID&searchFields[1]=StaffStaffTypeID"
             },
             "body": {
               "DataObject": {
@@ -3783,12 +3812,6 @@
         "type": "textbox",
         "label": "Page Size:",
         "value": "10000"
-      },
-	  {
-        "name": "system_entityid",
-        "type": "textbox",
-        "label": "System Entity ID:",
-        "value": ""
       }
     ]
   }
