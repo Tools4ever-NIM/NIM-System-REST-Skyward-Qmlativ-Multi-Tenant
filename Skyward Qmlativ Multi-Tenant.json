@@ -13,8 +13,6 @@
           "Metadata_SystemList": {
             "method": "get",
             "pagination": "none",
-            "query_parameters": {
-            },
             "call": {
               "path": "/Custom/GetSystemMetadata"
             },
@@ -56,8 +54,6 @@
           "MetadataList": {
             "method": "get",
             "pagination": "none",
-            "query_parameters": {
-            },
             "call": {
               "path": "/Custom/GetSystemMetadata"
             },
@@ -89,7 +85,7 @@
                 "SchoolYearCurrent_SchoolYearID"
               ],
               "path": "/Custom/{iterator}/Curriculum/Subject",
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               }
             },
@@ -129,8 +125,6 @@
         "operations": {
           "Demographics_AddressList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -152,8 +146,6 @@
         "operations": {
           "Demographics_CountryList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -176,8 +168,6 @@
         "operations": {
           "Demographics_CountyList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -201,8 +191,6 @@
         "operations": {
           "Demographics_DirectionalList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -226,8 +214,6 @@
         "operations": {
           "Demographics_EmailTypeList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -251,8 +237,6 @@
         "operations": {
           "Demographics_GenderIdentityList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -278,8 +262,6 @@
         "operations": {
           "Demographics_LanguageList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -312,8 +294,6 @@
         "operations": {
           "Demographics_NameAddressList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -343,8 +323,6 @@
         "operations": {
           "Demographics_NameAliasList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -535,7 +513,6 @@
         "operations": {
           "Demographics_NameSuffixList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -559,7 +536,6 @@
         "operations": {
           "Demographics_NameTitleList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -683,7 +659,6 @@
         "operations": {
           "Demographics_OccupationList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -707,7 +682,6 @@
         "operations": {
           "Demographics_PhoneTypeList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -734,7 +708,6 @@
         "operations": {
           "Demographics_RelationshipList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -760,7 +733,6 @@
         "operations": {
           "Demographics_StreetList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -791,7 +763,6 @@
         "operations": {
           "Demographics_ZipList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -817,7 +788,6 @@
         "operations": {
           "District_BuildingList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -840,7 +810,6 @@
         "operations": {
           "District_BuildingSchoolYearList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -863,7 +832,6 @@
         "operations": {
           "District_CalendarYearList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -886,7 +854,6 @@
         "operations": {
           "District_ConfigEntityYearList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -921,7 +888,6 @@
         "operations": {
           "District_DistrictList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -944,7 +910,6 @@
         "operations": {
           "District_DistrictSchoolYearList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -975,7 +940,6 @@
         "operations": {
           "District_EntityList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -1003,7 +967,6 @@
         "operations": {
           "District_FiscalYearList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -1028,7 +991,6 @@
         "operations": {
           "District_FloorList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -1059,7 +1021,6 @@
         "operations": {
           "District_RoomList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -1084,7 +1045,6 @@
         "operations": {
           "District_RoomTypeList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -1111,7 +1071,6 @@
         "operations": {
           "District_SchoolYearList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -1146,7 +1105,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Employee/Calendar"
@@ -1169,9 +1128,6 @@
         "operations": {
           "Employee_CheckLocationList": {
             "method": "get",
-            "query_parameters": {
-              "FiscalYearId": "{fiscal_year_id}"
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_Districts",
@@ -1179,7 +1135,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Employee/CheckLocation"
@@ -1202,8 +1158,6 @@
         "operations": {
           "Employee_DegreeTypeList": {
             "method": "get",
-            "query_parameters": {
-            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -1211,7 +1165,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Employee/DegreeType"
@@ -1244,7 +1198,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Employee/Degree"
@@ -1282,7 +1236,7 @@
                 "FiscalYearCurrent_FiscalYearID"
               ],
               "path": "/Custom/{iterator}/Employee/EmployeeDistrict",
-              "query_parameters": {
+              "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               }
             },
@@ -1336,7 +1290,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },  
               "path": "/Custom/{iterator}/Employee/Employee"
@@ -1366,7 +1320,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Employee/EmployeeYearExperience"
@@ -1402,7 +1356,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Employee/Employment"
@@ -1541,7 +1495,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Enrollment/EntryWithdrawal"
@@ -1601,7 +1555,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Enrollment/Homeroom"
@@ -1643,7 +1597,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Enrollment/School"
@@ -1687,7 +1641,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Enrollment/StudentEntityYear"
@@ -1744,7 +1698,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Enrollment/WithdrawalCode"
@@ -1766,7 +1720,6 @@
         "operations": {
           "Family_FamilyList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -1790,7 +1743,6 @@
         "operations": {
           "Family_FamilyGuardianList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -1823,7 +1775,6 @@
         "operations": {
           "Family_StudentFamilyList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -1854,7 +1805,6 @@
         "operations": {
           "Family_StudentGuardianList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -1884,7 +1834,6 @@
         "operations": {
           "FoodService_CustomerList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -1991,7 +1940,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/AssignmentType"
@@ -2022,7 +1971,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/Department"
@@ -2051,7 +2000,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/EmployeePlacement"
@@ -2083,7 +2032,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/EmployeePlacementDetail"
@@ -2112,7 +2061,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/EmployeePositionType"
@@ -2147,7 +2096,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/FTEGroup"
@@ -2178,7 +2127,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/JobType"
@@ -2208,7 +2157,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/Lane"
@@ -2239,7 +2188,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/Matrix"
@@ -2267,7 +2216,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/MatrixLane"
@@ -2298,7 +2247,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/OrganizationChart"
@@ -2330,7 +2279,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/OrganizationChartApprover"
@@ -2360,7 +2309,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/Placement"
@@ -2409,7 +2358,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/Position"
@@ -2446,7 +2395,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/PositionDistribution"
@@ -2488,7 +2437,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/PositionDistributionSet"
@@ -2519,7 +2468,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/PositionGroup"
@@ -2551,7 +2500,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/PositionNumber"
@@ -2590,7 +2539,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/PositionType"
@@ -2622,7 +2571,7 @@
               "iterator_columns": [
                 "FiscalYearCurrent_FiscalYearID"
               ],
-			        "query_parameters": {
+			        "queryParameters": {
                 "FiscalYearId": "{FiscalYearCurrent_FiscalYearID}"
               },
               "path": "/Custom/{iterator}/Position/Step"
@@ -2653,7 +2602,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/CourseType"
@@ -2694,7 +2643,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/Course"
@@ -2730,7 +2679,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/Meet"
@@ -2762,7 +2711,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/MeetSummary"
@@ -2793,7 +2742,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/SchedulingTeam"
@@ -2829,7 +2778,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/Section"
@@ -2860,7 +2809,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/StaffMeet"
@@ -2891,7 +2840,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/StaffStudent"
@@ -2927,7 +2876,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/StudentSection"
@@ -2960,7 +2909,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Scheduling/StudentSectionMeetSummary"
@@ -2985,7 +2934,6 @@
         "operations": {
           "Security_AuthenticationRoleList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -3009,7 +2957,6 @@
         "operations": {
           "Security_GroupList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -3033,7 +2980,6 @@
         "operations": {
           "Security_GroupMembershipList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -3081,7 +3027,6 @@
         "operations": {
           "Security_UserList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -3126,7 +3071,6 @@
         "operations": {
           "SkySys_StateList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -3157,7 +3101,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Staff/ConfigEntityGroupYear"
@@ -3189,7 +3133,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Staff/Department"
@@ -3231,7 +3175,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Staff/Staff",
@@ -3303,7 +3247,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Staff/StaffDepartment"
@@ -3340,7 +3284,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Staff/StaffEntityYear"
@@ -3398,7 +3342,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Staff/StaffStaffType",
@@ -3452,7 +3396,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Staff/StaffType"
@@ -3476,7 +3420,6 @@
         "operations": {
           "StateReporting_StateInternetAccessList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -3502,7 +3445,6 @@
         "operations": {
           "StateReporting_StateInternetAccessTypeList": {
             "method": "get",
-            "query_parameters": {},
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
@@ -3534,7 +3476,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Student/InternetAccess"
@@ -3564,7 +3506,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Student/InternetAccessType"
@@ -3592,7 +3534,7 @@
               "iterator_columns": [
                 "SchoolYearCurrent_SchoolYearID"
               ],
-              "query_parameters": {
+              "queryParameters": {
                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
               },
               "path": "/Custom/{iterator}/Student/StudentCustomCode"
@@ -3659,7 +3601,7 @@
       "sslLegacyProtocols": true,
       "get": {
         "maxPageCount": 500,
-        "query_parameters": {
+        "queryParameters": {
         },
         "pagination": {
           "mode": "url",
