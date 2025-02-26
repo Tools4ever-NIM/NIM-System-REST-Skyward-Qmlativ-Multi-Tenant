@@ -3,6 +3,7 @@
 <img src="https://www.tools4ever.nl/connector-logos/skywardqmlativ-logo.png" width="256px">
 
 # Data Tables
+- Attendance Calendar
 - Curriculum Subject
 - Demographics Address
 - Demographics Country
