@@ -67,6 +67,40 @@
           }
         }
       },
+      "Attendance_Calendar": {
+        "key": "CalendarID",
+        "resources": {
+          "CalendarID": "string*",
+          "Code": "string*",
+          "CodeDescription": "string*",
+          "Description": "string*",
+          "EndDate": "string*",
+          "EntityID": "string*",
+          "IsDefault": "string*",
+          "SchoolYearID": "string*",
+          "StartDate": "string*"
+        },
+        "operations": {
+          "Attenance_CalendarList": {
+            "method": "get",
+            "call": {
+              "mode": "iteration",
+              "table": "Metadata_Districts",
+              "iterator": "EntityID",
+              "iterator_columns": [
+                "SchoolYearCurrent_SchoolYearID"
+              ],
+              "path": "/Custom/{iterator}/Attendance/Calendar",
+              "query_parameters": {
+                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+              }
+            },
+            "processing_options": {
+              "output_field": "Objects"
+            }
+          }
+        }
+      },
       "Curriculum_Subject": {
         "key": "SubjectID",
         "resources": {
