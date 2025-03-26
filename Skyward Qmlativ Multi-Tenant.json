@@ -1931,6 +1931,58 @@
           }
         }
       },
+      "Payroll_AssignmentPayType": {
+        "key": "AssignmentPayTypeID",
+        "resources": {
+            "AssignmentPayTypeID": "string*",
+            "AssignmentID": "string*",
+            "IsActive": "boolean*",
+            "IsFullPaySchedule": "boolean",
+            "IsVerified": "boolean",
+            "PayScheduleID": "string",
+            "PayTypeID": "string*"
+        },
+        "operations": {
+          "Payroll_AssignmentPayTypeList": {
+            "method": "get",
+            "query_parameters": {},
+            "call": {
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Payroll/AssignmentPayType"
+            },
+            "processing_options": {
+              "output_field": "Objects"
+            }
+          }
+        }
+      },
+      "Payroll_PayType": {
+        "key": "PayTypeID",
+        "resources": {
+            "PayTypeID": "string*",
+            "Code": "string*",
+            "CodeDescription": "string",
+            "Description": "string*",
+            "FiscalYearID": "string*"
+        },
+        "operations": {
+          "Payroll_PayTypeList": {
+            "method": "get",
+            "query_parameters": {},
+            "call": {
+              "mode": "iteration",
+              "table": "Metadata_System",
+              "iterator": "EntityID",
+              "path": "/Custom/{iterator}/Payroll/PayType"
+            },
+            "processing_options": {
+              "output_field": "Objects"
+            }
+          }
+        }
+      },
       "Position_Assignment": {
         "key": "AssignmentID",
         "resources": {
