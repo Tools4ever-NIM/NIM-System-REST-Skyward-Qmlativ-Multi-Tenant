@@ -3116,16 +3116,25 @@
           "NameID": "string*",
           "PasswordExpirationDate": "string*",
           "UserID": "string*",
-          "Username": "string*"
+          "Username": "string*",
+          "EntityID": "string*"
         },
         "operations": {
           "Security_UserList": {
             "method": "get",
+            "selector": {
+              "mode": "array",
+              "array": "searchFields",
+              "excludedFields": ["EntityID"]
+            },
             "call": {
               "mode": "iteration",
               "table": "Metadata_System",
               "iterator": "EntityID",
-              "path": "/Custom/{iterator}/Security/User"
+              "path": "/Custom/{iterator}/Security/User",
+              "base": {
+                "EntityID": "{iterator}"
+              }
             },
             "processing_options": {
               "output_field": "Objects"
@@ -3139,17 +3148,42 @@
             },
             "body": {
               "DataObject": {
-                "_nim_merge_attributes_": true
+                "_nim_merge_attributes_": false,
+                "AuthenticationRoleID": "{AuthenticationRoleID}",
+                "IsActive": "{IsActive}",
+                "NameID": "{NameID}",
+                "Username": "{Username}"
               }
             },
             "mergeOutput": true,
             "semantics": "create",
-            "resource_allowance_default": "optional",
+            "resource_allowance_default": "prohibited",
             "resource_mandatory": [
               "AuthenticationRoleID",
               "IsActive",
               "NameID",
-              "Username"
+              "Username",
+              "EntityID"
+            ]
+          },
+          "Security_UserUpdate": {
+            "method": "put",
+            "call": {
+              "mode": "normal",
+              "path": "/Custom/{EntityID}/Security/User?searchFields[0]=AuthenticationRoleID&searchFields[1]=IsActive&searchFields[2]=NameID&searchFields[3]=UserID&searchFields[4]=Username"
+            },
+            "body": {
+              "DataObject": {
+                "_nim_merge_attributes_": false,
+                "Username": "{Username}"
+              }
+            },
+            "mergeOutput": true,
+            "semantics": "update",
+            "resource_allowance_default": "prohibited",
+            "resource_mandatory": [
+              "Username",
+              "EntityID"
             ]
           }
         }
