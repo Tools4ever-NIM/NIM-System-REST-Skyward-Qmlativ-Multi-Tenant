@@ -675,12 +675,68 @@
                         },
                         "body": {
                             "DataObject": {
-                                "_nim_merge_attributes_": true
+                                "_nim_merge_attributes_": false,
+                                "BirthDate": "{BirthDate}",
+                                "FirstName": "{FirstName}",
+                                "LastName": "{LastName}",
+                                "MiddleName": "{MiddleName}",
+                                "ExternalUniqueIdentifier": "{ExternalUniqueIdentifier}"
                             }
                         },
                         "mergeOutput": true,
+                        "removeBlankFields": true,
                         "semantics": "create",
                         "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                        "Age",
+                        "BirthMonth",
+                        "BirthMonthDay",
+                        "BirthYear",
+                        "CalculatedPrimaryFormattedPhoneNumber",
+                        "ConversionKey",
+                        "Ethnicity",
+                        "EthnicityAndRace",
+                        "FirstInitial",
+                        "FirstInitialLastName",
+                        "FirstInitialLastNameLegal",
+                        "FirstInitialLegal",
+                        "FirstNameLegal",
+                        "FullNameFL",
+                        "FullNameFMIL",
+                        "FullNameLegalFL",
+                        "FullNameLegalFML",
+                        "FullNameLegalLFM",
+                        "FullNameLF",
+                        "FullNameLFM",
+                        "Gender",
+                        "GenderCode",
+                        "GenderDescription",
+                        "GenderIdentityID",
+                        "Initials",
+                        "InitialsLegal",
+                        "IsCurrentStudent",
+                        "IsEmployeeName",
+                        "IsEmployeeNameForDistrict",
+                        "IsGuardianName",
+                        "IsStudentName",
+                        "LastInitial",
+                        "LastInitialLegal",
+                        "MiddleInitial",
+                        "MiddleInitialLegal",
+                        "LastNameLegal",
+                        "MaritalStatus",
+                        "MaritalStatusCode",
+                        "MiddleNameLegal",
+                        "NameAddressMailingID",
+                        "NameKey",
+                        "NameNumber",
+                        "NameSuffixID",
+                        "NameSuffixIDLegal",
+                        "NameTitleID",
+                        "NameTitleIDLegal",
+                        "OccupationID",
+                        "Race"
+                      ],
                         "resource_mandatory": [
                             "FirstName",
                             "LastName"
@@ -9458,6 +9514,5 @@
                 }
             ]
         }
-    ],
-    "version": "1.2.3"
+    ]
 }
