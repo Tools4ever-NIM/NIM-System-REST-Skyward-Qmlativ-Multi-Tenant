@@ -3240,9 +3240,12 @@
                         "body": {
                             "DataObject": {
                                 "_nim_merge_attributes_": false,
+                                "AuthenticationRoleID": "{AuthenticationRoleID}",
+                                "NameID": "{NameID}",
                                 "Username": "{Username}"
                             }
                         },
+                        "removeBlankFields": true,
                         "mergeOutput": true,
                         "semantics": "update",
                         "resource_allowance_default": "optional",
