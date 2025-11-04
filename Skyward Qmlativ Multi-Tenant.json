@@ -345,13 +345,14 @@
                     "NameAliasID": "string*",
                     "EffectiveDate": "string*",
                     "FirstName": "string*",
+                    "IsLegalName": "boolean*",
+                    "IsMaidenName": "string*",
                     "LastName": "string*",
                     "MiddleName": "string*",
                     "NameID": "string*",
                     "NameSuffixID": "string*",
                     "NameTitleID": "string*",
-                    "Rank": "string*",
-                    "IsLegalName": "boolean*"
+                    "Rank": "string*"
                 },
                 "operations": {
                     "Demographics_NameAliasList": {
@@ -422,6 +423,10 @@
                         "mergeOutput": true,
                         "semantics": "create",
                         "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                            "EmailConfirmed",
+                            "NameEmailID"
+                        ],
                         "resource_mandatory": [
                             "EmailAddress",
                             "EmailTypeID",
@@ -534,6 +539,27 @@
                             "PhoneTypeID",
                             "NameID",
                             "Rank",
+                            "EntityID"
+                        ],
+                        "resource_prohibited": [
+                            "NamePhoneID",
+                            "Extension",
+                            "FormattedPhoneNumber",
+                            "FormattedPhoneNumberCodeEEL",
+                            "FullPhoneNumber",
+                            "FullPhoneNumberWithType"
+                        ]
+                    },
+                    "Demographics_NamePhoneDelete": {
+                        "method": "delete",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/Custom/{EntityID}/Demographics/NamePhone/{NamePhoneID}?searchFields[0]=NamePhoneID"
+                        },
+                        "semantics": "delete",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "NamePhoneID",
                             "EntityID"
                         ]
                     }
@@ -671,6 +697,7 @@
                         "method": "put",
                         "call": {
                             "mode": "normal",
+                            "post_processing": "as_input",
                             "path": "/Custom/{EntityID}/Demographics/Name?searchFields[0]=NameID"
                         },
                         "body": {
@@ -728,6 +755,7 @@
                             "MaritalStatusCode",
                             "MiddleNameLegal",
                             "NameAddressMailingID",
+                            "NameID",
                             "NameKey",
                             "NameNumber",
                             "NameSuffixID",
@@ -740,6 +768,19 @@
                         "resource_mandatory": [
                             "FirstName",
                             "LastName"
+                        ]
+                    },
+                    "Demographics_NameDelete": {
+                        "method": "delete",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/Custom/{EntityID}/Demographics/Name/{NameID}?searchFields[0]=NameID"
+                        },
+                        "semantics": "delete",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "NameID",
+                            "EntityID"
                         ]
                     }
                 }
@@ -1984,7 +2025,7 @@
                 "resources": {
                     "PayTypeID": "string*",
                     "Code": "string*",
-                    "CodeDescription": "string",
+                    "CodeDescription": "string*",
                     "Description": "string*",
                     "FiscalYearID": "string*"
                 },
@@ -2053,12 +2094,14 @@
                     "AssignmentDetailID": "string*",
                     "AssignmentDetailIdentifier": "string*",
                     "AssignmentID": "string*",
+                    "Comment": "string*",
                     "EmployeePlacementDetailID": "string*",
                     "EmployeePlacementIDBase": "string*",
                     "EndDate": "string*",
                     "EnteredFTE": "string*",
                     "IsOverloaded": "string*",
                     "IsPrimary": "string*",
+                    "StartDate": "string*",
                     "StepID": "string*",
                     "StepIDBase": "string*"
                 },
@@ -3107,7 +3150,7 @@
                 "key": "GroupID",
                 "resources": {
                     "GroupID": "string*",
-                    "IsActive": "boolean",
+                    "IsActive": "boolean*",
                     "Description": "string*",
                     "Name": "string*"
                 },
@@ -3151,6 +3194,7 @@
                         "method": "put",
                         "call": {
                             "mode": "normal",
+                            "post_processing": "as_input",
                             "path": "/Custom/{EntityID}/Security/GroupMembership?searchFields[0]=GroupMembershipID&searchFields[1]=EntityID&searchFields[2]=GroupIDParent&searchFields[3]=UserIDMember&searchFields[4]=GroupIDParent"
                         },
                         "body": {
@@ -3160,11 +3204,24 @@
                         },
                         "mergeOutput": true,
                         "semantics": "create",
-                        "resource_allowance_default": "optional",
+                        "resource_allowance_default": "prohibited",
                         "resource_mandatory": [
                             "EntityID",
                             "GroupIDParent",
                             "UserIDMember"
+                        ]
+                    },
+                    "Security_GroupMembershipDelete": {
+                        "method": "delete",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/Custom/{EntityID}/Security/GroupMembership/{GroupMembershipID}?searchFields[0]=GroupMembershipID"
+                        },
+                        "semantics": "delete",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "EntityID",
+                            "GroupMembershipID"
                         ]
                     }
                 }
@@ -3174,8 +3231,8 @@
                 "resources": {
                     "AccessCode": "string*",
                     "AuthenticationRoleID": "string*",
-                    "IsActive": "boolean",
-                    "IsDeleted": "boolean",
+                    "IsActive": "boolean*",
+                    "IsDeleted": "boolean*",
                     "NameID": "string*",
                     "PasswordExpirationDate": "string*",
                     "UserID": "string*",
@@ -3235,7 +3292,6 @@
                         "resource_prohibited": [
                             "AccessCode",
                             "IsDeleted",
-                            "NameID",
                             "PasswordExpirationDate"
                         ]
                     },
@@ -3260,7 +3316,8 @@
                             "AccessCode",
                             "PasswordExpirationDate",
                             "IsActive",
-                            "IsDeleted"
+                            "IsDeleted",
+                            "NameID"
                         ],
                         "resource_mandatory": [
                             "UserID",
@@ -3404,10 +3461,12 @@
                                 "_nim_merge_attributes_": false,
                                 "DistrictID": "{DistrictID}",
                                 "NameID": "{NameID}",
-                                "StaffNumber": "{StaffNumber}"
+                                "StaffNumber": "{StaffNumber}",
+                                "StaffWebsite": "{StaffWebsite}"
                             }
                         },
                         "mergeOutput": true,
+                        "removeBlankFields": true,
                         "semantics": "create",
                         "resource_allowance_default": "optional",
                         "resource_prohibited": [
@@ -3429,13 +3488,26 @@
                             "ModifiedTime",
                             "UserIDCreatedBy",
                             "UserIDModifiedBy",
-                            "StaffMeetCount",
-                            "StaffWebsite"
+                            "StaffMeetCount"
                         ],
                         "resource_mandatory": [
                             "DistrictID",
                             "NameID",
-                            "StaffNumber"
+                            "StaffNumber",
+                            "EntityID"
+                        ]
+                    },
+                    "Staff_StaffDelete": {
+                        "method": "delete",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/Custom/{EntityID}/Staff/Staff/{StaffID}?searchFields[0]=StaffID"
+                        },
+                        "semantics": "delete",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "EntityID",
+                            "StaffID"
                         ]
                     }
                 }
@@ -3522,6 +3594,27 @@
                             "StaffID",
                             "EntityID",
                             "SchoolYearID"
+                        ],
+                        "resource_prohibited": [
+                            "StaffEntityYearID",
+                            "IsCareerCenterCounselor",
+                            "IsDisciplineOfficer",
+                            "IsSubstituteTeacher",
+                            "RoomIDDefault",
+                            "StaffDepartmentSummary"
+                        ]
+                    },
+                    "Staff_StaffEntityYearDelete": {
+                        "method": "delete",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/Custom/{EntityID}/Staff/StaffEntityYear/{StaffEntityYearID}?searchFields[0]=StaffEntityYearID"
+                        },
+                        "semantics": "delete",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "EntityID",
+                            "StaffEntityYearID"
                         ]
                     }
                 }
@@ -3576,7 +3669,6 @@
                         "body": {
                             "DataObject": {
                                 "_nim_merge_attributes_": false,
-                                "StaffStaffTypeID": "{StaffStaffTypeID}",
                                 "EndDate": "{EndDate}",
                                 "IsPrimary": "{IsPrimary}",
                                 "StaffID": "{StaffID}",
@@ -3589,9 +3681,11 @@
                         "semantics": "create",
                         "resource_allowance_default": "optional",
                         "resource_prohibited": [
-                            "PositionDescription"
+                            "PositionDescription",
+                            "StaffStaffTypeID"
                         ],
                         "resource_mandatory": [
+                            "EntityID",
                             "StaffID",
                             "StaffTypeID",
                             "StartDate"
