@@ -3267,11 +3267,12 @@
                         "call": {
                             "mode": "normal",
                             "post_processing": "as_input",
-                            "path": "/Custom/{EntityID}/Security/User?searchFields[0]=AuthenticationRoleID&searchFields[1]=IsActive&searchFields[2]=NameID&searchFields[3]=UserID&searchFields[4]=Username"
+                            "path": "/Custom/{EntityID}/Security/User?searchFields[0]=AuthenticationRoleID&searchFields[1]=IsActive&searchFields[2]=NameID&searchFields[3]=UserID&searchFields[4]=Username&searchFields[5]=AccessCode"
                         },
                         "body": {
                             "DataObject": {
                                 "_nim_merge_attributes_": false,
+                                "AccessCode": "{AccessCode}",
                                 "AuthenticationRoleID": "{AuthenticationRoleID}",
                                 "IsActive": "{IsActive}",
                                 "NameID": "{NameID}",
@@ -3290,20 +3291,21 @@
                             "EntityID"
                         ],
                         "resource_prohibited": [
-                            "AccessCode",
                             "IsDeleted",
-                            "PasswordExpirationDate"
+                            "PasswordExpirationDate",
+                            "UserID"
                         ]
                     },
                     "Security_UserUpdate": {
                         "method": "post",
                         "call": {
                             "mode": "normal",
-                            "path": "/Custom/{EntityID}/Security/User/{UserID}?searchFields[0]=AuthenticationRoleID&searchFields[1]=IsActive&searchFields[2]=NameID&searchFields[3]=UserID&searchFields[4]=Username"
+                            "path": "/Custom/{EntityID}/Security/User/{UserID}?searchFields[0]=AuthenticationRoleID&searchFields[1]=IsActive&searchFields[2]=NameID&searchFields[3]=UserID&searchFields[4]=Username&searchFields[5]=AccessCode"
                         },
                         "body": {
                             "DataObject": {
                                 "_nim_merge_attributes_": false,
+                                "AccessCode": "{AccessCode}",
                                 "AuthenticationRoleID": "{AuthenticationRoleID}",
                                 "Username": "{Username}"
                             }
@@ -3313,7 +3315,6 @@
                         "semantics": "update",
                         "resource_allowance_default": "optional",
                         "resource_prohibited": [
-                            "AccessCode",
                             "PasswordExpirationDate",
                             "IsActive",
                             "IsDeleted",
@@ -3321,7 +3322,6 @@
                         ],
                         "resource_mandatory": [
                             "UserID",
-                            "Username",
                             "EntityID"
                         ]
                     }
