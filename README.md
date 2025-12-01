@@ -1,129 +1,38 @@
 # Skyward Qmlativ with Multi Tenant Support
 
-<img src="https://www.tools4ever.nl/connector-logos/skywardqmlativ-logo.png" width="256px">
+<img src="https://github.com/user-attachments/assets/2f02ec1e-23d8-4e97-98d3-f6bd7268dbc9" width="256px">
+
 
 # Data Tables
-- Attendance Calendar
-- Curriculum Subject
-- Demographics Address
-- Demographics Country
-- Demographics County
-- Demographics Directional
-- Demographics EmailType
-- Demographics GenderIdentity
-- Demographics Language
-- Demographics NameAddress
-- Demographics NameAlias
-- Demographics NameEmail
-- Demographics NamePhone
-- Demographics NameSuffix
-- Demographics NameTitle
-- Demographics Name
-- Demographics Occupation
-- Demographics PhoneType
-- Demographics Relationship
-- Demographics Street
-- Demographics Zip
-- District Building
-- District BuildingSchoolYear
-- District CalendarYear
-- District ConfigEntityYear
-- District District
-- District DistrictSchoolYear
-- District Entity
-- District FiscalYear
-- District Floor
-- District Room
-- District RoomType
-- District SchoolYear
-- Employee Calendar
-- Employee CheckLocation
-- Employee DegreeType
-- Employee Degree
-- Employee EmployeeDistrict
-- Employee EmployeeFiscalYear
-- Employee Employee
-- Employee EmployeeYearExperience
-- Employee Employment
-- Employee EmploymentStatus
-- Employee Termination
-- Enrollment EntitySchool
-- Enrollment EntryCode
-- Enrollment EntryWithdrawal
-- Enrollment GradeLevel
-- Enrollment Homeroom
-- Enrollment School
-- Enrollment StudentEntityYear
-- Enrollment StudentType
-- Enrollment WithdrawalCode
-- Family Family
-- Family FamilyGuardian
-- Family StudentFamily
-- Family StudentGuardian
-- FoodService Customer
-- Position Assignment
-- Position AssignmentDetail
-- Position AssignmentType
-- Position Department
-- Position EmployeePlacement
-- Position EmployeePlacementDetail
-- Position EmployeePositionType
-- Position FTEGroup
-- Position JobType
-- Position Lane
-- Position Matrix
-- Position MatrixLane
-- Position Placement
-- Position Position
-- Position PositionDistribution
-- Position PositionDistributionSet
-- Position PositionGroup
-- Position PositionType
-- Position Step
-- Scheduling CourseType
-- Scheduling Course
-- Scheduling Meet
-- Scheduling MeetSummary
-- Scheduling SchedulingTeam
-- Scheduling Section
-- Scheduling StaffMeet
-- Scheduling StudentSection
-- Security AuthenticationRole
-- Security Groups
-- Security Group Memberships
-- Security User
-- SkySys State
-- Staff ConfigEntityGroupYear
-- Staff Department
-- Staff Staff
-- Staff StaffDepartment
-- Staff StaffEntityYear
-- Staff StaffStaffType
-- Staff StaffType
-- StateReporting StateInternetAccess
-- StateReporting StateInternetAccessType
-- Student InternetAccess
-- Student InternetAccessType
-- Student StudentCustomCode
-- Student Student
-
+- Groups
+- Users
+- UserGroups
+- UserInfos 
+- UserInfo_LinkedProviderIDs
+- UserInfo_LInkedTemplatesConfigs
+- UserInfo_UserIDs
+- UserInfo_UserRoleIDs
+- UserInfo_UserSubtemplateIDs
+- UserInfo_UsersManagers
+- UserInfo_ExternalIdentifiers
+- UserInfo_IdentityIDs
+- UserInfo_DefaultLoginDepartmentIDs
+- UserPagers
 
 # Actions
-- Demographics NameEmail
-    - Create/Update/Delete
-- Demographics NamePhone
-    - Create/Update/Delete
-- Demographics Name
+- UserGroups
+    - Add
+    - Remove
+- UserInfo
+    - Activate
     - Create
-- Security User
-    - Create
-- Staff Staff
-    - Create
-- Staff StaffEntityYear
-    - Create
-- Staff StaffStaffType
-    - Create
-
+    - Delete
+    - Force Password Change
+    - Set Password
+    - Update
+    - Update Names
+- UserPagers
+    - Update
 
  
 # NIM Docs
