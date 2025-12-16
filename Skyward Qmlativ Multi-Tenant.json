@@ -1081,7 +1081,8 @@
                             "mode": "iteration",
                             "table": "Metadata_Districts",
                             "iterator": "EntityID",
-                            "path": "/Custom/{iterator}/District/Entity"
+                            "iterator_columns": ["SchoolYearCurrent_SchoolYearID"],
+                            "path": "/Custom/{iterator}/District/Entity?SchoolYearID={SchoolYearCurrent_SchoolYearID}"
                         },
                         "processing_options": {
                             "output_field": "Objects"
