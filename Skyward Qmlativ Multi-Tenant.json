@@ -1077,15 +1077,40 @@
                 "operations": {
                     "District_EntityList": {
                         "method": "get",
+                        "verb": "post",
                         "call": {
                             "mode": "iteration",
                             "table": "Metadata_Districts",
                             "iterator": "EntityID",
                             "iterator_columns": ["SchoolYearCurrent_SchoolYearID"],
-                            "path": "/Custom/{iterator}/District/Entity?SchoolYearID={SchoolYearCurrent_SchoolYearID}"
+                            "path": "/Custom/{iterator}/District/Entity",
+                            "queryParameters": {
+                                "searchFields[0]": "EntityID",
+                                "searchFields[1]": "CampusID",
+                                "searchFields[2]": "Code",
+                                "searchFields[3]": "CodeName",
+                                "searchFields[4]": "DistrictCodeEntityCode",
+                                "searchFields[5]": "DistrictID",
+                                "searchFields[6]": "IsCurrentlySelected",
+                                "searchFields[7]": "IsDistrictWide",
+                                "searchFields[8]": "IsSystemWide",
+                                "searchFields[9]": "Name",
+                                "searchFields[10]": "SchoolYearIDCurrent"
+                            }
                         },
                         "processing_options": {
                             "output_field": "Objects"
+                        },
+                        "body" : 	{
+                            "SearchParameters": {
+                                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+                            },
+                            "SearchCondition": {
+                                "LongSearchCondition": {
+                                    "FieldName": "EntityID",
+                                    "ConditionType": "NotNull"
+                                }
+                            }
                         }
                     }
                 }
@@ -1869,14 +1894,33 @@
                 "operations": {
                     "Family_FamilyList": {
                         "method": "get",
+                        "verb": "post",
                         "call": {
                             "mode": "iteration",
-                            "table": "Metadata_System",
+                            "table": "Metadata_Districts",
                             "iterator": "EntityID",
-                            "path": "/Custom/{iterator}/Family/Family"
+                            "iterator_columns": ["DistrictID"],
+                            "path": "/Custom/{iterator}/Family/Family?DistrictID={DistrictID}",
+                             "queryParameters": {
+                                "searchFields[0]": "FamilyID",
+                                "searchFields[1]": "FoodServiceBeginningBalance",
+                                "searchFields[2]": "FoodServiceCurrentBalance",
+                                "searchFields[3]": "LanguageIDHome"
+                            }
                         },
                         "processing_options": {
                             "output_field": "Objects"
+                        },
+                        "body" : 	{
+                            "SearchParameters": {
+                                "DistrictID": "{DistrictID}"
+                            },
+                            "SearchCondition": {
+                                "LongSearchCondition": {
+                                    "FieldName": "FamilyID",
+                                    "ConditionType": "NotNull"
+                                }
+                            }
                         }
                     }
                 }
@@ -3070,6 +3114,7 @@
                 "operations": {
                     "Scheduling_StudentSectionList": {
                         "method": "get",
+                        "verb": "post",
                         "call": {
                             "mode": "iteration",
                             "table": "Metadata_Districts",
@@ -3078,12 +3123,34 @@
                                 "SchoolYearCurrent_SchoolYearID"
                             ],
                             "queryParameters": {
-                                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+                                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}",
+                                "searchFields[0]": "StudentSectionID",
+                                "searchFields[1]": "EndDate",
+                                "searchFields[2]": "EnrollmentStatus",
+                                "searchFields[3]": "EnrollmentStatusCode",
+                                "searchFields[4]": "IsActiveAsOfDate",
+                                "searchFields[5]": "SectionID",
+                                "searchFields[6]": "StartDate",
+                                "searchFields[7]": "Status",
+                                "searchFields[8]": "StatusCode",
+                                "searchFields[9]": "StatusString",
+                                "searchFields[10]": "StudentID"
                             },
                             "path": "/Custom/{iterator}/Scheduling/StudentSection"
                         },
                         "processing_options": {
                             "output_field": "Objects"
+                        },
+                        "body":{
+                            "SearchParameters": {
+                                "AsOfDate": "2000-01-01"
+                            },
+                            "SearchCondition": {
+                                "LongSearchCondition": {
+                                    "FieldName": "StudentSectionID",
+                                    "ConditionType": "NotNull"
+                                }
+                            }
                         }
                     }
                 }
