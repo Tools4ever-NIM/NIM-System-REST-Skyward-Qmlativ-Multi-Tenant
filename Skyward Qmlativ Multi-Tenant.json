@@ -668,6 +668,8 @@
                     "NameTitleIDLegal": "string",
                     "OccupationID": "string*",
                     "Race": "string*",
+                    "RaceVerifiedBy": "string",
+                    "RaceVerifiedDate": "string",
                     "EntityID": "string*"
                 },
                 "operations": {
