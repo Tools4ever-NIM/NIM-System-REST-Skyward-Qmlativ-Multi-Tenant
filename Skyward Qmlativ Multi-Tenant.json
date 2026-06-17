@@ -2877,7 +2877,8 @@
                     "IsCoreAcademic": "boolean",
                     "IsCurrentSchoolYear": "boolean*",
                     "SchoolYearID": "string*",
-                    "SubjectID": "string*"
+                    "SubjectID": "string*",
+                    "CourseLengthID": "string*"
                 },
                 "operations": {
                     "Scheduling_CourseList": {
@@ -2900,6 +2901,98 @@
                     }
                 }
             },
+            "Scheduling_CourseLength": {
+                "key": "CourseLengthID",
+                "resources": {
+                    "CourseLengthID": "string*",
+                    "Code": "string*",
+                    "Description": "string*",
+                    "EntityID": "string*",
+                    "SchoolYearID": "string*",
+                    "SectionLengthsList": "string*"
+                },
+                "operations": {
+                    "Scheduling_CourseLengthList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "Metadata_Districts",
+                            "iterator": "EntityID",
+                            "iterator_columns": [
+                                "SchoolYearCurrent_SchoolYearID"
+                            ],
+                            "queryParameters": {
+                                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+                            },
+                            "path": "/Custom/{iterator}/Scheduling/CourseLength"
+                        },
+                        "processing_options": {
+                            "output_field": "Objects"
+                        }
+                    }
+                }
+            },
+            "Scheduling_DisplayPeriod": {
+                "key": "DisplayPeriodID",
+                "resources": {
+                    "DisplayPeriodID": "string*",
+                    "Code": "string*",
+                    "Description": "string*",
+                    "DisplayPeriodCodeDayRotationCode": "string*",
+                    "DisplayPeriodDescriptionDayRotationCode": "string*",
+                    "SortNumber": "string*"
+                },
+                "operations": {
+                    "Scheduling_DisplayPeriodList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "Metadata_Districts",
+                            "iterator": "EntityID",
+                            "iterator_columns": [
+                                "SchoolYearCurrent_SchoolYearID"
+                            ],
+                            "queryParameters": {
+                                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+                            },
+                            "path": "/Custom/{iterator}/Scheduling/DisplayPeriod"
+                        },
+                        "processing_options": {
+                            "output_field": "Objects"
+                        }
+                    }
+                }
+            },
+            "Scheduling_DisplayPeriodRotation": {
+                "key": "DisplayPeriodRotationID",
+                "resources": {
+                    "DisplayPeriodRotationID": "string*",
+                    "Code": "string*",
+                    "Description": "string*",
+                    "EntityID": "string*",
+                    "SchoolYearID": "string*"
+                },
+                "operations": {
+                    "Scheduling_DisplayPeriodRotationList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "Metadata_Districts",
+                            "iterator": "EntityID",
+                            "iterator_columns": [
+                                "SchoolYearCurrent_SchoolYearID"
+                            ],
+                            "queryParameters": {
+                                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+                            },
+                            "path": "/Custom/{iterator}/Scheduling/DisplayPeriodRotation"
+                        },
+                        "processing_options": {
+                            "output_field": "Objects"
+                        }
+                    }
+                }
+            },
             "Scheduling_Meet": {
                 "key": "MeetID",
                 "resources": {
@@ -2913,7 +3006,8 @@
                     "StaffNames": "string",
                     "StartDate": "string*",
                     "Type": "string*",
-                    "TypeCode": "string*"
+                    "TypeCode": "string*",
+                    "DisplayPeriodCode": "string*"
                 },
                 "operations": {
                     "Scheduling_MeetList": {
@@ -3012,7 +3106,10 @@
                     "EntityCodeTeacherNumber": "string*",
                     "EntityID": "string*",
                     "HomeroomID": "string*",
-                    "IsActive": "string*"
+                    "IsActive": "string*",
+                    "SchoolYearID": "string*",
+                    "SectionLengthID": "string*",
+                    "SectionName": "string*"
                 },
                 "operations": {
                     "Scheduling_SectionList": {
@@ -3028,6 +3125,37 @@
                                 "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
                             },
                             "path": "/Custom/{iterator}/Scheduling/Section"
+                        },
+                        "processing_options": {
+                            "output_field": "Objects"
+                        }
+                    }
+                }
+            },
+            "Scheduling_SectionLength": {
+                "key": "SectionLengthID",
+                "resources": {
+                    "SectionLengthID": "string*",
+                    "Code": "string*",
+                    "Description": "string*",
+                    "CourseLengthID": "string*",
+                    "EndDate": "string*",
+                    "StartDate": "string*"
+                },
+                "operations": {
+                    "Scheduling_SectionLengthList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "Metadata_Districts",
+                            "iterator": "EntityID",
+                            "iterator_columns": [
+                                "SchoolYearCurrent_SchoolYearID"
+                            ],
+                            "queryParameters": {
+                                "SchoolYearID": "{SchoolYearCurrent_SchoolYearID}"
+                            },
+                            "path": "/Custom/{iterator}/Scheduling/SectionLength"
                         },
                         "processing_options": {
                             "output_field": "Objects"
